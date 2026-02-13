@@ -92,6 +92,10 @@ async function callOpenAIVision(base64Image) {
   2. Suche die passende Zeit-ID aus der Liste oben. Erfinde KEINE eigenen IDs.
   3. Erfasse ALLE Fächer für ALLE Wochentage im Bild. Überspringe nichts.
   4. Gib NUR valides JSON zurück, kein zusätzlicher Text.
+  5. Zahlen können KEIN Name für ein Fach sein!
+  6. Ein Fach kann nur einen Namen haben.
+  7. Schlussfolgere sinnvoll aus Bezeichnungen. Wenn Sport existiert, heißt "S" nicht Sport, sondern vermutlich Spanisch oder umgekehrt.
+  8. Die Startzeit für Fächer können nicht immer genau erkennbar sein. Beachte dafür andere Dinge, die darauf schlussfolgern lassen. (z.B. unten rechts stehen Zeiten, die aber von der Blockgröße nicht auf die Fächer passen, vermute anhand des Verhältnisses, wieviel Zeit ein solcher Fächerabschnitt ist)
   `;
 
   const response = await client.chat.completions.create({
