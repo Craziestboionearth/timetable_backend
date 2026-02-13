@@ -9,6 +9,11 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+// ✅ Healthcheck-Route für Browser & Render
+app.get('/', (req, res) => {
+  res.send('Stundenplan-Backend läuft ✅');
+});
+
 app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));
 
