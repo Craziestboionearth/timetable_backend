@@ -57,7 +57,9 @@ async function callOpenAIVision(base64Image) {
   Psychologie → "#PSYCH2" | Philosophie → "#PHIL3" | Politik → "#POL00"
   Sozialwissenschaften → "#SOW01" | Geografie → "#GEO11" | Geschichte → "#GES12"
   Naturwissenschaften → "#NW184" | Informatik → "#IT149" | Wirtschaft → "#WIRT8"
-  Religion → "#REL16" | Ethik → "#ETH79"
+  Religion → "#REL16" | Ethik → "#ETH79" | ILZ → "#ILZ01" | iLz → "#ILZ02" | ilz → "#ILZ03" | ILz → "#ILZ04"
+  iLZ → "#ILZ05" | ilZ → "#ILZ06" | PÜZ → "#PÜZ01" | pÜz → "#PÜZ02"
+  püz → "#PÜZ03" | Püz → "#PÜZ04" | pÜZ → "#PÜZ05" | püZ → "#PÜZ06"
 
   STARTZEITEN → zeit (WICHTIG: Nutze NUR diese IDs!):
   07:00 → "#Z0000" | 07:05 → "#Z0001" | 07:10 → "#Z0002" | 07:15 → "#Z0003"
@@ -96,6 +98,8 @@ async function callOpenAIVision(base64Image) {
   6. Ein Fach kann nur einen Namen haben.
   7. Schlussfolgere sinnvoll aus Bezeichnungen. Wenn Sport existiert, heißt "S" nicht Sport, sondern vermutlich Spanisch oder umgekehrt.
   8. Die Startzeit für Fächer können nicht immer genau erkennbar sein. Beachte dafür andere Dinge, die darauf schlussfolgern lassen. (z.B. unten rechts stehen Zeiten, die aber von der Blockgröße nicht auf die Fächer passen, vermute anhand des Verhältnisses, wieviel Zeit ein solcher Fächerabschnitt ist)
+  9. Springe nicht zwischen Fach-Bezeichnungen hin und her. Wenn du also am Anfang des Plans Spanisch mit "S" abgekürzt gefunden hast, benutze für Spanisch in dieser Anfrage nur "S" (denke daran, dass sich so etwas von Anfrage zu Anfrage verändern kann(!))
+  10. Wenn bei einer Stunde anstatt eines Namens ganz oben im Feld etwas steht wie "([Zahl])" oder ein Name oder irgendetwas, wozu du keine ID zuordnen kannst, suche nach etwas anderem im selben Feld.
   `;
 
   const response = await client.chat.completions.create({
